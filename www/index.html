@@ -38,12 +38,18 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/portfolio.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <title>NAAC</title>
 </head>
 
-<body>
-    <div class="app">
+<body class="green">
+   <!--  <div class="app">
         <h1>PhoneGasssssss</h1>
         <div id="deviceready" class="blink">
             <p class="event listening">Connecting to Devices</p>
@@ -51,10 +57,201 @@
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/index.js"></script> -->
+    <div id="page-container" class="fade page-without-sidebar page-header-fixed in">
+    <div id="header" class="header navbar navbar-default navbar-fixed-top">
+            <!-- begin container-fluid -->
+            <div class="container-fluid">
+                <!-- begin mobile sidebar expand / collapse button -->
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span><label style="float: left;font-weight: normal;">NAAC</label></a>
+                    <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- end mobile sidebar expand / collapse button -->
+
+            </div>
+            <!-- end container-fluid -->
+        </div><!-- <aside class="right-side"> -->
+    <!-- start content -->
+    <div id="content" class="content">
+
+            <!-- <section class="content-header"> -->
+                <!--<div id='notifications-div' class="stats">
+                    <p class="stat"><a href='#'><span class="number">1 New P.R.</span></a></p>
+                </div>-->
+                
+            <!-- </section> -->
+            <ol class="breadcrumb pull-right">
+            
+                            </ol>
+
+            <h1 class="page-header"><span></span></h1>
+    </div>  <!-- end content -->
+    
+
+    <script>
+      $(document).ready(function(){
+
+
+     
+        $('a.form_menu').on('click',function(e){
+                e.preventDefault();
+                href = $(this).attr('href');
+                swal({
+                      title: "Welcome to NAAC",
+                      text: "You are about the fill up an intake form. Do you want to proceed?",
+                      type: "",
+                      showCancelButton: true,
+                      confirmButtonColor: "#009688",
+                      confirmButtonText: "Proceed",
+                      cancelButtonText: "Cancel",
+                      closeOnConfirm: false,
+                      closeOnCancel: true
+                    },
+                    function(isConfirm){
+
+                        if(isConfirm){
+                            window.location.href = href;
+                        }
+                        // console.log(isConfirm);
+                     //    swal("Ajax request finished!");
+                     
+                });
+                // swal("Welcome");
+                // console.log('ff');
+            });
+
+            });
+    </script>
+<span id="test"></span>
+
+    <div id="content" class="content">
+        <div class="panel over-flow">
+                            
+            <div class=" box box-primary ">
+                <div style="-webkit-border-radius: 0px;-moz-border-radius: 0px;border-radius: 0px;" class="box-body ">             
+
+                    <div class=" row nom ">
+                        <div class=" col-md-12  text-left ">
+                            <div class="banner-title light-txt banner-title light-txt row nom ">
+                                <br>
+                                <h1 class="text-uppercase">NAAC Forms</h1>
+                            </div>
+                        </div>
+                        <div class=" col-md-12  text-left ">
+                            <div class="portfolio portfolio-with-title col-6 gutter" >
+                                <div class="portfolio-item" >
+                                    <div class="thumb">
+                                        <img src="img/icons/survey.gif">
+                                        <div class="portfolio-hover">
+                                            <div class="action-btn">
+                                                <a href="img/icons/survey.gif">
+                                                    <i class="icon-basic_magnifier"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="portfolio-title">
+                                    <h4><a href="http://pointonesolutions.com.ph/naac/intake/1" class="form_menu">NAAC Intake Form</a></h4>
+                                    <p>Sample Description </p>
+                                </div>
+                            </div>
+                            <div class="portfolio-item" >
+                                <div class="thumb">
+                                <img src="img/icons/survey3.jpg">
+                                    <div class="portfolio-hover">
+                                        <div class="action-btn">
+                                            <a href="img/icons/survey3.jpg">
+                                                <i class="icon-basic_magnifier"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio-title">
+                                    <h4><a href="#" class="">NAAC 1003</a></h4>
+                                    <p>Sample Description </p>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-item">
+                                <div class="thumb">
+                                <img src="img/icons/survey4.jpg">
+                                <div class="portfolio-hover">
+                                    <div class="action-btn action-btn row nom ">
+                                        <a href="img/icons/survey4.jpg">
+                                            <i class="icon-basic_magnifier"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-title">
+                                <h4><a href="#" class="">NAAC Auth Form</a></h4>
+                                <p>Sample Description </p>
+                            </div>
+                        </div>
+
+
+                        <div class="portfolio-item">
+                            <div class="thumb">
+                                <img src="img/icons/survey5.jpg">
+
+                                <div class="portfolio-hover">
+                                    <div class="action-btn">
+                                        <a href="http://localhost/naac/iimages/icons/survey5.jpg"><i class="icon-basic_magnifier"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="portfolio-title">
+                                <h4><a href="#" class="">CARE FERA Web Application Form</a></h4>
+                                    <p>Sample Description </p>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <div class="thumb">
+                                <img src="img/icons/survey6.jpg">
+                                <div class="portfolio-hover">
+                                    <div class="action-btn"><a href="img/icons/survey6.jpg">
+                                        <i class="icon-basic_magnifier"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="portfolio-title">
+                            <h4><a href="#" class="">NAAC Broad Band Adoption</a></h4>
+                             <p>Sample Description </p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <img src="img/icons/survery6.jpg">
+                                <div class="portfolio-hover">
+                                    <div class="action-btn">
+                                        <a href="img/icons/survery6.jpg"><i class="icon-basic_magnifier"></i></a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="portfolio-title">
+                            <h4><a href="#" class="">Micro Lending</a></h4>
+                            <p>Sample Description </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div></div></div></div></div><a id="tb-scroll-to-top" data-scroll="" class="tb-scroll-to-top-hide" href="#"><i class="fa fa-angle-up"></i></a><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front" tabindex="-1" role="dialog" aria-describedby="ui-id-1" aria-labelledby="ui-id-2" style="display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-2" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-dialog-titlebar-close"></button></div><div class="dummy ui-dialog-content ui-widget-content" id="ui-id-1"></div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front" tabindex="-1" role="dialog" aria-describedby="view-dummy-div" aria-labelledby="ui-id-3" style="display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-3" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-dialog-titlebar-close"></button></div><div id="view-dummy-div" class="ui-dialog-content ui-widget-content"></div></div>
+
     <script type="text/javascript">
         app.initialize();
     </script>
+
 </body>
 
 </html>
