@@ -43,8 +43,12 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.min.css" />
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" type="text/css" href="css/swal-forms.css" />
+
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/sweetalert.min.js"></script>
+    <script src="js/swal-forms.js"></script>
+
     <title>NAAC</title>
 </head>
 
@@ -94,36 +98,75 @@
     
 
     <script>
+      base_url ='http://www.pointonesolutions.com.ph/naac/';
       $(document).ready(function(){
+            function new_address(url){
+                window.open(url,'winname',"directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=400,height=350");
+            }
 
-
-     
-        $('a.form_menu').on('click',function(e){
+            $('.thumb,.portfolio-hover').on('click',function(){
+                id = $(this).attr('id');
+                $('a[label="'+id+'"]').click();
+            })
+            $('a.form_menu').on('click',function(e){
                 e.preventDefault();
                 href = $(this).attr('href');
-                swal({
-                      title: "Welcome to NAAC",
-                      text: "You are about the fill up an intake form. Do you want to proceed?",
-                      type: "",
-                      showCancelButton: true,
-                      confirmButtonColor: "#009688",
-                      confirmButtonText: "Proceed",
-                      cancelButtonText: "Cancel",
-                      closeOnConfirm: false,
-                      closeOnCancel: true
-                    },
-                    function(isConfirm){
+                label = $(this).attr('label');
 
-                        if(isConfirm){
-                            window.location.href = href;
-                        }
-                        // console.log(isConfirm);
-                     //    swal("Ajax request finished!");
-                     
-                });
+                if(label != 'CARE FERA'){
+                    swal({
+                          title: "Welcome to NAAC",
+                          text: "You are about the fill up an "+label+" form. Do you want to proceed?",
+                          type: "",
+                          showCancelButton: true,
+                          confirmButtonColor: "#009688",
+                          confirmButtonText: "Proceed",
+                          cancelButtonText: "Cancel",
+                          closeOnConfirm: false,
+                          closeOnCancel: true
+                        },
+                        function(isConfirm){
+
+                            if(isConfirm){
+                                 new_address(href);//window.location.href = href;
+                            }
+                            // console.log(isConfirm);
+                         //    swal("Ajax request finished!");
+                         
+                    });
+                }else{
+
+                    swal.withForm({
+                    title: "Welcome to NAAC",
+                     text: "You are about the fill up an "+label+" form. Please select a language to proceed:",
+                    showCancelButton: true,
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Proceed',
+                    closeOnConfirm: true,
+                    closeOnCancel: true,
+                    formFields: [
+                      { id: 'select', type: 'select', options: [
+                          {value: 'care_fera_english', text: 'English'},
+                          {value: 'care_fera_vietnamese', text: 'Vietnamese'},
+                          {value: 'care_fera_spanish', text: 'Spanish'},
+                          {value: 'care_fera_chinese', text: 'Chinese'},
+                      ]}
+                    ]
+                  }, function (isConfirm) {
+
+                    // do whatever you want with the form data
+                    if(isConfirm){
+                        language = this.swalForm.select;
+                        new_address(base_url + language); // window.location.href = baseUrl() + language;
+                   
+                    }
+                  })
+
+                }
                 // swal("Welcome");
                 // console.log('ff');
             });
+
 
             });
     </script>
@@ -145,9 +188,9 @@
                         <div class=" col-md-12  text-left ">
                             <div class="portfolio portfolio-with-title col-6 gutter" >
                                 <div class="portfolio-item" >
-                                    <div class="thumb">
+                                    <div class="thumb" >
                                         <img src="img/icons/survey.gif">
-                                        <div class="portfolio-hover">
+                                        <div class="portfolio-hover"  id="intake">
                                             <div class="action-btn">
                                                 <a href="img/icons/survey.gif">
                                                     <i class="icon-basic_magnifier"></i>
@@ -156,14 +199,14 @@
                                         </div>
                                     </div>
                                 <div class="portfolio-title">
-                                    <h4><a href="http://pointonesolutions.com.ph/naac/intake/1" class="form_menu">NAAC Intake Form</a></h4>
+                                    <h4><a href="http://pointonesolutions.com.ph/naac/intake/1" class="form_menu" label="intake">NAAC Intake Form</a></h4>
                                     <p>Sample Description </p>
                                 </div>
                             </div>
                             <div class="portfolio-item" >
-                                <div class="thumb">
+                                <div class="thumb" >
                                 <img src="img/icons/survey3.jpg">
-                                    <div class="portfolio-hover">
+                                    <div class="portfolio-hover" id="NAAC 1003">
                                         <div class="action-btn">
                                             <a href="img/icons/survey3.jpg">
                                                 <i class="icon-basic_magnifier"></i>
@@ -173,11 +216,11 @@
                                 </div>
 
                                 <div class="portfolio-title">
-                                    <h4><a href="#" class="">NAAC 1003</a></h4>
+                                    <h4><a href="http://pointonesolutions.com.ph/naac/urla/1" class="form_menu" label="NAAC 1003">NAAC 1003</a></h4>
                                     <p>Sample Description </p>
                                 </div>
                             </div>
-
+<!-- 
                             <div class="portfolio-item">
                                 <div class="thumb">
                                 <img src="img/icons/survey4.jpg">
@@ -196,20 +239,20 @@
                             </div>
                         </div>
 
-
+ -->
                         <div class="portfolio-item">
                             <div class="thumb">
                                 <img src="img/icons/survey5.jpg">
 
-                                <div class="portfolio-hover">
+                                <div class="portfolio-hover" id='CARE FERA'>
                                     <div class="action-btn">
-                                        <a href="http://localhost/naac/iimages/icons/survey5.jpg"><i class="icon-basic_magnifier"></i></a>
+                                        <a href="iimages/icons/survey5.jpg"><i class="icon-basic_magnifier"></i></a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="portfolio-title">
-                                <h4><a href="#" class="">CARE FERA Web Application Form</a></h4>
+                                <h4><a href="#" class="form_menu" label="CARE FERA">CARE FERA Web Application Form</a></h4>
                                     <p>Sample Description </p>
                             </div>
                         </div>
@@ -217,14 +260,14 @@
                         <div class="portfolio-item">
                             <div class="thumb">
                                 <img src="img/icons/survey6.jpg">
-                                <div class="portfolio-hover">
+                                <div class="portfolio-hover" id= 'Broad Band Adoption'>
                                     <div class="action-btn"><a href="img/icons/survey6.jpg">
                                         <i class="icon-basic_magnifier"></i></a>
                                     </div>
                                 </div>
                             </div>
                         <div class="portfolio-title">
-                            <h4><a href="#" class="">NAAC Broad Band Adoption</a></h4>
+                            <h4><a href="http://pointonesolutions.com.ph/naac/broadband"  class="form_menu" label="Broad Band Adoption">NAAC Broad Band Adoption</a></h4>
                              <p>Sample Description </p>
                         </div>
                     </div>
@@ -232,14 +275,14 @@
                     <div class="portfolio-item">
                         <div class="thumb">
                             <img src="img/icons/survery6.jpg">
-                                <div class="portfolio-hover">
+                                <div class="portfolio-hover" id='Micro Lending'>
                                     <div class="action-btn">
                                         <a href="img/icons/survery6.jpg"><i class="icon-basic_magnifier"></i></a>
                                     </div>
                                 </div>
                         </div>
                         <div class="portfolio-title">
-                            <h4><a href="#" class="">Micro Lending</a></h4>
+                            <h4><a href="http://pointonesolutions.com.ph/naac/micro" class="form_menu" label="Micro Lending">Micro Lending</a></h4>
                             <p>Sample Description </p>
                         </div>
                     </div>
