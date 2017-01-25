@@ -4,11 +4,9 @@
     <description>
         Hello World sample application that responds to the deviceready event.
     </description>
-    <!-- <author email="support@phonegap.com" href="http://phonegap.com">
+    <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
-    </author> -->
-    <author>Adobe Systems Canada Inc</author>
-
+    </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
@@ -116,9 +114,4 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <preference name="phonegap-version" value="cli-6.1.0" />
-    <preference name="windows-appx-target" value="uap" />
-    <preference name="windows-identity-name" value="PhonegapBuild.PGBDeveloper" />
-
-
 </widget>
