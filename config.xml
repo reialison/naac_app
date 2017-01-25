@@ -117,7 +117,6 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <preference name="phonegap-version" value="cli-6.1.0" />
-    <preference name="windows-arch" value="anycpu" />
     <preference name="windows-appx-target" value="uap" />
     <preference name="windows-identity-name" value="PhonegapBuild.PGBDeveloper" />
 
