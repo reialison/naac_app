@@ -1,7 +1,5 @@
- base_url ='http://www.pointonesolutions.com.ph/naac/';
-        document.addEventListener("deviceready", onDeviceReady, false);
-
       $(document).ready(function(){
+ base_url ='http://www.pointonesolutions.com.ph/naac/';
             function new_address(url){
 
                 var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');

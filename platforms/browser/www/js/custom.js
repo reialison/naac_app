@@ -14,11 +14,11 @@
                //  }
             }
 
-            $('.thumb,.portfolio-hover').on('click',function(){
+            $('.thumb,.portfolio-hover').click(function(){
                 id = $(this).attr('id');
                 $('a[label="'+id+'"]').click();
             })
-            $('a.form_menu').on('click',function(e){
+            $('a.form_menu').click(function(e){
                 e.preventDefault();
                 href = $(this).attr('href');
                 label = $(this).attr('label');
