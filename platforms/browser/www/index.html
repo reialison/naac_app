@@ -28,6 +28,8 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
+
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -50,6 +52,7 @@
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/sweetalert.min.js"></script>
     <script src="js/swal-forms.js"></script>
+    <script src="js/custom.js"></script>
 
     <title>NAAC</title>
 </head>
@@ -99,88 +102,6 @@
     </div>  <!-- end content -->
     
 
-    <script>
-      base_url ='http://www.pointonesolutions.com.ph/naac/';
-      $(document).ready(function(){
-            function new_address(url){
-
-                var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
-                    ref.addEventListener('loadstart', function(event) { alert(event.url); });
-               //  document.addEventListener("deviceready", onDeviceReady, false);
-               //  function onDeviceReady() {
-               //      alert(url);
-               //      window.open = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
-               // // window.open(url,'winname',"directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=400,height=350");
-               //  }
-            }
-
-            $('.thumb,.portfolio-hover').on('click',function(){
-                id = $(this).attr('id');
-                $('a[label="'+id+'"]').click();
-            })
-            $('a.form_menu').on('click',function(e){
-                e.preventDefault();
-                href = $(this).attr('href');
-                label = $(this).attr('label');
-
-                if(label != 'CARE FERA'){
-                    swal({
-                          title: "Welcome to NAAC",
-                          text: "You are about the fill up an "+label+" form. Do you want to proceed?",
-                          type: "",
-                          showCancelButton: true,
-                          confirmButtonColor: "#009688",
-                          confirmButtonText: "Proceed",
-                          cancelButtonText: "Cancel",
-                          closeOnConfirm: false,
-                          closeOnCancel: true
-                        },
-                        function(isConfirm){
-
-                            if(isConfirm){
-                                 new_address(href);//window.location.href = href;
-                            }
-                            // console.log(isConfirm);
-                         //    swal("Ajax request finished!");
-                         
-                    });
-                }else{
-
-                    swal.withForm({
-                    title: "Welcome to NAAC",
-                     text: "You are about the fill up an "+label+" form. Please select a language to proceed:",
-                    showCancelButton: true,
-                    confirmButtonColor: '#DD6B55',
-                    confirmButtonText: 'Proceed',
-                    closeOnConfirm: true,
-                    closeOnCancel: true,
-                    formFields: [
-                      { id: 'select', type: 'select', options: [
-                          {value: 'care_fera_english', text: 'English'},
-                          {value: 'care_fera_vietnamese', text: 'Vietnamese'},
-                          {value: 'care_fera_spanish', text: 'Spanish'},
-                          {value: 'care_fera_chinese', text: 'Chinese'},
-                      ]}
-                    ]
-                  }, function (isConfirm) {
-                        alert(isConfirm);
-
-                    // do whatever you want with the form data
-                    if(isConfirm){
-                        language = this.swalForm.select;
-                        new_address(base_url + language); // window.location.href = baseUrl() + language;
-                   
-                    }
-                  })
-
-                }
-                // swal("Welcome");
-                // console.log('ff');
-            });
-
-
-            });
-    </script>
 <span id="test"></span>
 
     <div id="content" class="content">
