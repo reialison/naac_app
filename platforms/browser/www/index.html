@@ -103,9 +103,8 @@
       base_url ='http://www.pointonesolutions.com.ph/naac/';
       $(document).ready(function(){
             function new_address(url){
-                                        alert(url);
-
-                window.open(url,'winname',"directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=400,height=350");
+               // window.open(url,'winname',"directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=no,resizable=no,width=400,height=350");
+                cordova.InAppBrowser.open(url, '_blank', 'location=yes');
             }
 
             $('.thumb,.portfolio-hover').on('click',function(){
@@ -161,7 +160,6 @@
 
                     // do whatever you want with the form data
                     if(isConfirm){
-                        alert('here');
                         language = this.swalForm.select;
                         new_address(base_url + language); // window.location.href = baseUrl() + language;
                    
