@@ -1,5 +1,5 @@
       $(document).ready(function(){
- base_url ='http://www.pointonesolutions.com.ph/naac/';
+            base_url ='http://www.pointonesolutions.com.ph/naac/';
             function new_address(url){
 
                 var ref = cordova.InAppBrowser.open(url, '_blank', 'fullscreen=yes');
@@ -37,6 +37,7 @@
 
                             if(isConfirm){
                                  new_address(href);//window.location.href = href;
+                                 swal.close();
                             }
                             // console.log(isConfirm);
                          //    swal("Ajax request finished!");
@@ -61,8 +62,6 @@
                       ]}
                     ]
                   }, function (isConfirm) {
-                        alert(isConfirm);
-
                     // do whatever you want with the form data
                     if(isConfirm){
                         language = this.swalForm.select;
