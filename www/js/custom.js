@@ -2,9 +2,16 @@
             base_url ='http://www.pointonesolutions.com.ph/naac/';
             function new_address(url){
 
-                var ref = cordova.InAppBrowser.open(url, '_blank', 'location=no,fullscreen=yes,closebuttoncaption=Home');
-                    ref.addEventListener('loadstart', function(event) { alert(event.url); });
-               //  document.addEventListener("deviceready", onDeviceReady, false);
+                var ref = cordova.InAppBrowser.open(url, '_blank', 'fullscreen=yes,closebuttoncaption=Home');
+                    ref.addEventListener('loadstart', function(event) { });
+
+                  ref.addEventListener('loadstop', function(event) {        
+                       if (event.url.match("mobile/close")) {
+                            ref.close();
+                        }                  
+                  });               
+
+                  //  document.addEventListener("deviceready", onDeviceReady, false);
                //  function onDeviceReady() {
                //      alert(url);
                //      window.open = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
