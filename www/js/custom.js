@@ -1,6 +1,9 @@
       $(document).ready(function(){
-            StatusBar.hide();
-            base_url ='http://www.pointonesolutions.com.ph/naac/';
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            if (window.StatusBar) window.StatusBar.hide();
+        }
+                  base_url ='http://www.pointonesolutions.com.ph/naac/';
             function new_address(url){
 
                 var ref = cordova.InAppBrowser.open(url, '_blank', 'location=no,fullscreen=yes,toolbar=no');
