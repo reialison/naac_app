@@ -1,4 +1,5 @@
       $(document).ready(function(){
+            StatusBar.hide();
             base_url ='http://www.pointonesolutions.com.ph/naac/';
             function new_address(url){
 
